@@ -52,6 +52,13 @@
   /* Height of the nav pill. The accent switcher is a circle of the same
      diameter, and its expanded stack is a multiple of it. */
   --nav-h: 3.5rem;
+
+  /* Actual rendered height of both the nav pill and the accent switcher's
+     closed housing — the switcher pads its marble by 0.5rem plus a 2px
+     border, so this is what "one row" actually measures on screen. Both
+     components size off this instead of --nav-h directly so they stay the
+     same height. */
+  --nav-pill-h: calc(var(--nav-h) + 0.5rem + 2px);
 }
 
 /* sm and up: the row has space for the fuller pill. */

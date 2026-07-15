@@ -46,7 +46,7 @@ export default function AccentSwitcher({ scrolled }: { scrolled: boolean }) {
   return (
     <div
       ref={rootRef}
-      className="relative h-[var(--nav-h)] w-[var(--nav-h)] shrink-0"
+      className="relative h-[var(--nav-pill-h)] w-[var(--nav-h)] shrink-0"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -62,12 +62,27 @@ export default function AccentSwitcher({ scrolled }: { scrolled: boolean }) {
           // Closed: one marble tall/wide, a perfect circle. Expanded: the
           // padding cancels out to exactly four nav heights (rows have no gap
           // between them, so the stride below stays exact), and the width
-          // grows leftward to fit each gem's name. A fixed radius (not
-          // rounded-full) keeps the corners from eating into the first/last
-          // row once the panel is nearly square.
-          height: expanded ? "calc(var(--nav-h) * 4 + 0.5rem)" : "var(--nav-h)",
-          width: expanded ? "calc(var(--nav-h) + 9rem)" : "var(--nav-h)",
-          borderRadius: expanded ? "1.75rem" : "9999px",
+          // grows leftward to fit each gem's name. Closed needs the same
+          // padding+border cancellation (0.5rem padding + 2px border) so the
+          // single visible row's content box is exactly one nav-h square —
+          // otherwise the marble sits off-centre in the housing. A fixed
+          // radius (not rounded-full) keeps the corners from eating into the
+          // first/last row once the panel is nearly square.
+          height: expanded
+            ? "calc(var(--nav-h) * 4 + 0.5rem)"
+            : "var(--nav-pill-h)",
+          width: expanded
+            ? "calc(var(--nav-h) + 6.48rem)"
+            : "var(--nav-pill-h)",
+          // A concrete radius (half the closed box, still a perfect circle
+          // since it's square) rather than 9999px: browsers clamp
+          // border-radius to half the box's shorter side, so animating from
+          // an arbitrarily huge value keeps it clamped to that ever-growing
+          // max for nearly the whole transition, then snaps to 1.75rem right
+          // at the end.
+          borderRadius: expanded
+            ? "1.75rem"
+            : "calc(var(--nav-pill-h) / 2)",
         }}
       >
         <div

@@ -16,9 +16,12 @@ export default function Nav() {
 
   return (
     <header className="sticky top-0 z-50 px-4 py-3 sm:px-6 sm:py-4">
-      <div className="mx-auto max-w-6xl pr-[calc(var(--nav-h)+0.5rem)] sm:pr-[calc(var(--nav-h)+0.75rem)]">
+      {/* Centered independently of the switcher below — no shared container,
+          no reserved-space calc, so its position on screen can't be nudged
+          by the switcher's presence or its expanded width. */}
+      <div className="mx-auto max-w-[calc(100%-12rem)] lg:max-w-[69.3rem]">
         <div
-          className={`flex min-h-[var(--nav-h)] items-center justify-between rounded-full border px-5 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out sm:px-8 ${
+          className={`flex h-[var(--nav-pill-h)] items-center justify-between rounded-full border px-5 transition-[background-color,border-color,box-shadow,backdrop-filter] duration-500 ease-out sm:px-8 ${
             scrolled
               ? "border-border-hairline bg-background/70 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.7)] backdrop-blur-md"
               : "border-transparent bg-transparent shadow-none"
@@ -57,6 +60,9 @@ export default function Nav() {
         </div>
       </div>
 
+      {/* top-3/sm:top-4 matches the header's own py-3/sm:py-4, so this
+          starts at the same y as the pill above despite being positioned
+          independently of it. */}
       <div className="absolute right-4 top-3 sm:right-6 sm:top-4">
         <AccentSwitcher scrolled={scrolled} />
       </div>
