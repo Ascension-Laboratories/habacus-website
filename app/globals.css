@@ -1,26 +1,170 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core surfaces */
+  --background: #0a0a0b;
+  --background-raised: #131315;
+  --background-panel: #17171a;
+  --foreground: #f2efe9;
+  --foreground-muted: #a8a49c;
+  --foreground-faint: #6b6862;
+  --border-hairline: rgba(242, 239, 233, 0.09);
+  --border-hairline-strong: rgba(242, 239, 233, 0.16);
+
+  /* Gemstone / gold accent (citrine — default accent shipped in-app) */
+  --gold: #c9a24b;
+  --gold-bright: #e8c674;
+  --gold-dim: #4a4128;
+  --bronze: #6b5a2e;
+
+  /* A slice of the 15 gemstone accents + 10 frame materials, for the showcase */
+  --gem-citrine: #c9a24b;
+  --gem-topaz: #d98f4e;
+  --gem-ruby: #a8384a;
+  --gem-jade: #4f8f6f;
+  --gem-emerald: #2f7a52;
+  --gem-opal: #b9c6c9;
+  --gem-lapis: #35578f;
+  --gem-sapphire: #2a4d7a;
+  --gem-tanzanite: #4a4a8f;
+  --gem-amethyst: #7a5a9a;
+  --gem-quartz: #d8cfc4;
+  --gem-hematite: #4a4a4d;
+  --gem-onyx: #1c1c1e;
+  --gem-diamond: #e8e6df;
+  --gem-bronzite: #8a6a4a;
+
+  --frame-stone: #9a958a;
+  --frame-limestone: #d8d0c0;
+  --frame-granite: #5a5854;
+  --frame-beech: #c9a06a;
+  --frame-oak: #a97c4f;
+  --frame-mahogany: #6b3a2e;
+  --frame-chrome: #c4c8cc;
+  --frame-steel: #7a8085;
+  --frame-brass: #b8933f;
+  --frame-gold: #d4af37;
+
+  --radius-lg: 28px;
+  --radius-md: 18px;
+  --radius-sm: 10px;
+
+  /* Height of the nav pill. The accent switcher is a circle of the same
+     diameter, and its expanded stack is a multiple of it. */
+  --nav-h: 3.5rem;
+}
+
+/* sm and up: the row has space for the fuller pill. */
+@media (min-width: 40rem) {
+  :root {
+    --nav-h: 4.25rem;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-background-raised: var(--background-raised);
+  --color-background-panel: var(--background-panel);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-foreground-muted: var(--foreground-muted);
+  --color-foreground-faint: var(--foreground-faint);
+  --color-gold: var(--gold);
+  --color-gold-bright: var(--gold-bright);
+  --color-gold-dim: var(--gold-dim);
+  --color-bronze: var(--bronze);
+  --color-border-hairline: var(--border-hairline);
+  --color-border-hairline-strong: var(--border-hairline-strong);
+
+  --font-display: var(--font-dm-serif-display);
+  --font-serif: var(--font-source-serif-4);
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-dm-mono);
+  --font-eyebrow: var(--font-teachers);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--gold-dim);
+  color: var(--gold-bright);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-eyebrow {
+  font-family: var(--font-eyebrow);
+}
+
+/* Subtle grain overlay to keep the matte-black surfaces from feeling flat/digital */
+.grain::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.035;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+@keyframes drift {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(0, -14px, 0);
+  }
+}
+
+.animate-drift {
+  animation: drift 7s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 12px 2px color-mix(in srgb, var(--gold-bright) 55%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 22px 6px color-mix(in srgb, var(--gold-bright) 75%, transparent);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
 }
