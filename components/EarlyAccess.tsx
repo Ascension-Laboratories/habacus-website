@@ -25,7 +25,7 @@ export default function EarlyAccess() {
           </p>
 
           <div className="mt-10 flex justify-center">
-            <WaitlistButton className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-background transition-colors hover:bg-gold-bright">
+            <WaitlistButton className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-white transition-colors hover:bg-gold-bright hover:[text-shadow:0_0_0.6px_currentColor,0_0_0.6px_currentColor]">
               Request early access
             </WaitlistButton>
           </div>

@@ -22,7 +22,7 @@
   /* A slice of the 15 gemstone accents + 10 frame materials, for the showcase */
   --gem-citrine: #c9a24b;
   --gem-topaz: #d98f4e;
-  --gem-ruby: #a8384a;
+  --gem-ruby: #9e1f2e;
   --gem-jade: #4f8f6f;
   --gem-emerald: #2f7a52;
   --gem-opal: #b9c6c9;
@@ -93,6 +93,12 @@
 
 * {
   box-sizing: border-box;
+}
+
+/* Tailwind v4 preflight sets `cursor: default` on buttons; restore the
+   pointer cursor visitors expect when hovering clickable buttons. */
+button:not(:disabled) {
+  cursor: pointer;
 }
 
 html {

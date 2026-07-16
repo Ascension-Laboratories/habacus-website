@@ -72,7 +72,7 @@ export default function ShareAbacus() {
                 type="button"
                 onClick={handleShare}
                 disabled={status === "working"}
-                className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-background transition-colors hover:bg-gold-bright disabled:cursor-wait disabled:opacity-60"
+                className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-white transition-colors hover:bg-gold-bright hover:[text-shadow:0_0_0.6px_currentColor,0_0_0.6px_currentColor] disabled:cursor-wait disabled:opacity-60"
               >
                 {status === "working" ? "Polishing…" : "Share your abacus"}
               </button>

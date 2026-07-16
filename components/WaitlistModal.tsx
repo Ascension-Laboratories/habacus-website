@@ -225,7 +225,7 @@ export default function WaitlistModal({
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="rounded-full bg-gold px-6 py-2.5 font-eyebrow text-[13px] uppercase tracking-[0.1em] text-background transition-colors hover:bg-gold-bright"
+                  className="rounded-full bg-gold px-6 py-2.5 font-eyebrow text-[13px] uppercase tracking-[0.1em] text-white transition-colors hover:bg-gold-bright hover:[text-shadow:0_0_0.6px_currentColor,0_0_0.6px_currentColor]"
                 >
                   {copied ? "Copied" : "Copy link"}
                 </button>
@@ -268,7 +268,7 @@ export default function WaitlistModal({
             <button
               type="submit"
               disabled={submitting}
-              className="mt-7 w-full rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-background transition-colors hover:bg-gold-bright disabled:cursor-wait disabled:opacity-60"
+              className="mt-7 w-full rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-white transition-colors hover:bg-gold-bright hover:[text-shadow:0_0_0.6px_currentColor,0_0_0.6px_currentColor] disabled:cursor-wait disabled:opacity-60"
             >
               {submitting ? "Saving your seat…" : "Request early access"}
             </button>

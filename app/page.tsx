@@ -25,7 +25,7 @@ export default async function Home() {
           </p>
 
           <div className="mt-9 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <WaitlistButton className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-background transition-colors hover:bg-gold-bright">
+            <WaitlistButton className="rounded-full bg-gold px-8 py-3.5 font-eyebrow text-sm uppercase tracking-[0.1em] text-white transition-colors hover:bg-gold-bright hover:[text-shadow:0_0_0.6px_currentColor,0_0_0.6px_currentColor]">
               Join early access
             </WaitlistButton>
             <a
@@ -39,7 +39,7 @@ export default async function Home() {
 
         <Hero3DAbacus />
 
-        <p className="font-mono mx-auto -mt-6 max-w-xs text-center text-xs text-foreground-faint sm:mt-0">
+        <p className="font-mono mx-auto -mt-10 max-w-xs text-center text-xs text-foreground-faint sm:-mt-4">
           On iOS · {waitlistCount.toLocaleString("en-US")} already sliding
         </p>
       </section>
