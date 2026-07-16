@@ -39,7 +39,7 @@ export default async function Home() {
 
         <Hero3DAbacus />
 
-        <p className="font-mono mx-auto -mt-10 max-w-xs text-center text-xs text-foreground-faint sm:-mt-4">
+        <p className="font-mono mx-auto -mt-14 max-w-xs text-center text-xs text-foreground-faint sm:-mt-8">
           On iOS · {waitlistCount.toLocaleString("en-US")} already sliding
         </p>
       </section>

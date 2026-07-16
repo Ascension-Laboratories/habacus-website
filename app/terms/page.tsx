@@ -11,157 +11,165 @@ export default function TermsPage() {
     <LegalDoc
       title="Terms of Service"
       updated="15 July 2026"
-      intro="These terms cover your use of the Habacus app and this website. By creating an account or using Habacus, you agree to them."
+      intro="These Terms of Service (&quot;Terms&quot;) govern your access to and use of the Habacus application and this website. By creating an account or otherwise using Habacus, you agree to be bound by these Terms."
     >
-      <Section heading="1. Who these terms are with">
+      <Section heading="1. Parties">
         <p>
           Habacus is provided by Ascension Labs (&quot;Ascension Labs,&quot;
-          &quot;we,&quot; &quot;us&quot;). References to &quot;you&quot; mean
-          the person using the app or this website.
+          &quot;we,&quot; &quot;us,&quot; or &quot;our&quot;). &quot;You&quot;
+          means the individual using the application or this website.
         </p>
       </Section>
 
       <Section heading="2. The service">
         <p>
-          Habacus is a habit-consistency app built around an abacus
-          metaphor: you log habits by &quot;sliding a bead,&quot; view a
-          rolling-consistency view of your history, and optionally share
-          your progress with friends in a daily feed. Habacus is currently
-          in private beta — features, availability, and pricing may change
-          as we keep building.
+          Habacus is a habit-consistency application that allows users to
+          record habit completions, view a history of their consistency,
+          and, at their option, share their progress with other users. The
+          service is currently offered in private beta. Features,
+          availability, and pricing may change, and functionality may be
+          added, modified, or withdrawn at our discretion.
         </p>
       </Section>
 
       <Section heading="3. Accounts">
         <p>
-          You need an account to use Habacus, created and authenticated via
-          Auth0. You&apos;re responsible for keeping your login credentials
-          secure and for anything that happens under your account. You must
-          be at least 13 years old (or the minimum age of digital consent
-          where you live) to use Habacus, and you agree to give us accurate
-          information when you sign up.
+          Use of Habacus requires an account. Account credentials are
+          created and authenticated using a specialised third-party
+          identity provider; we do not directly store your password. You
+          are responsible for maintaining the confidentiality of your
+          credentials and for all activity occurring under your account.
+          You must be at least 13 years of age, or the minimum age of
+          digital consent in your jurisdiction, to use Habacus, and you
+          agree to provide accurate information when registering.
         </p>
       </Section>
 
       <Section heading="4. Acceptable use">
         <p>You agree not to:</p>
         <ul className="list-disc space-y-2 pl-5">
-          <li>Use Habacus to harass, shame, or pressure another user — including via the nudge feature;</li>
-          <li>Attempt to access another user&apos;s account or data without authorization;</li>
-          <li>Scrape, reverse-engineer, or interfere with the app or backend;</li>
-          <li>Use the friends/contacts features to spam people who haven&apos;t consented to being contacted;</li>
-          <li>Use the service for anything unlawful, or that infringes someone else&apos;s rights.</li>
+          <li>use Habacus to harass, shame, or pressure another user, including through the nudge feature;</li>
+          <li>attempt to access another user&apos;s account or data without authorization;</li>
+          <li>scrape, reverse-engineer, or interfere with the application or its underlying systems;</li>
+          <li>use the friends or contacts features to contact individuals who have not consented to being contacted; or</li>
+          <li>use the service for any unlawful purpose or in a manner that infringes the rights of any third party.</li>
         </ul>
         <p>
-          We may suspend or terminate accounts that violate these rules.
+          We may suspend or terminate any account found to be in breach of
+          this section.
         </p>
       </Section>
 
       <Section heading="5. Your content and data">
         <p>
-          You own the habit names, notes, and other content you put into
-          Habacus. By using the app, you grant us a limited license to
-          store, process, and display that content back to you (and, where
-          you&apos;ve chosen to share it, to your accepted friends) so the
-          service can function. See our{" "}
+          As between you and us, you retain ownership of the habit names,
+          notes, and other content you submit to Habacus (&quot;User
+          Content&quot;). By submitting User Content, you grant us a
+          limited, non-exclusive license to store, process, and display
+          that content for the purpose of operating the service, including
+          displaying it to users you have chosen to share it with. Further
+          detail on how User Content is shared with other users, including
+          the current absence of per-habit privacy controls within the
+          Friends feature, is set out in our{" "}
           <a href="/privacy" className="text-gold-bright hover:underline">
             Privacy Policy
-          </a>{" "}
-          for exactly what&apos;s shared with friends today — notably, our
-          Friends feature does not yet support per-habit privacy controls,
-          so anything you log is visible to all of your accepted friends.
+          </a>
+          .
         </p>
       </Section>
 
       <Section heading="6. Social features">
         <p>
-          Reactions, encouragement notes, and nudges are meant to be
-          supportive, not competitive or coercive. Nudges are rate-limited
-          on our end to prevent pile-on. We may remove social content or
-          restrict the feature for accounts that use it to pressure or
-          harass others.
+          Reactions, encouragement notes, and nudges are intended to
+          support, not pressure, other users. Nudges are rate-limited to
+          prevent repeated or coordinated messaging. We reserve the right
+          to remove social content, or to restrict a user&apos;s access to
+          social features, where it is used to harass or pressure others.
         </p>
       </Section>
 
-      <Section heading="7. Pricing">
+      <Section heading="7. Fees">
         <p>
-          Habacus is currently free during private beta. We may introduce
-          optional premium features or a subscription tier in the future;
-          if we do, we&apos;ll tell you clearly before charging you
-          anything, and existing free functionality won&apos;t be pulled out
-          from under you without notice.
+          Habacus is currently provided free of charge during private beta.
+          We may introduce paid features or a subscription tier in future.
+          If we do, we will provide notice and obtain your agreement before
+          any charge is applied, and will not withdraw functionality that
+          was previously free without reasonable notice.
         </p>
       </Section>
 
       <Section heading="8. Intellectual property">
         <p>
-          The Habacus name, logo, app design, and underlying software are
-          owned by Ascension Labs and protected by intellectual property
-          law. These terms don&apos;t grant you any rights to our
-          trademarks or branding beyond what&apos;s needed to use the app
-          normally.
+          The Habacus name, logo, application design, and underlying
+          software are owned by Ascension Labs and protected by applicable
+          intellectual property laws. Nothing in these Terms grants you any
+          right or license in respect of our trademarks or branding, other
+          than as reasonably necessary to use the service as intended.
         </p>
       </Section>
 
       <Section heading="9. Third-party services">
         <p>
-          Habacus relies on third-party services — including Auth0 for
-          authentication and Apple&apos;s App Store for distribution — whose
-          own terms may also apply to you.
+          Habacus relies on third-party service providers, including a
+          specialised identity provider for account authentication and
+          Apple&apos;s App Store for distribution. Your use of those
+          services may be subject to their respective terms.
         </p>
       </Section>
 
       <Section heading="10. Disclaimers">
         <p>
-          Habacus is a consistency and habit-support tool, not medical,
-          psychological, or professional advice of any kind. The app is
-          provided &quot;as is&quot; and &quot;as available,&quot; without
-          warranties of any kind, express or implied. We don&apos;t
-          guarantee the service will be uninterrupted, error-free, or
-          available at all times — it&apos;s an early-stage, actively
-          changing product.
+          Habacus is a consistency and habit-tracking tool and does not
+          constitute medical, psychological, or other professional advice.
+          The service is provided on an &quot;as is&quot; and &quot;as
+          available&quot; basis, without warranties of any kind, whether
+          express or implied, including as to uninterrupted, error-free, or
+          continuous availability. This section does not affect any
+          statutory rights that cannot lawfully be excluded.
         </p>
       </Section>
 
       <Section heading="11. Limitation of liability">
         <p>
-          To the fullest extent permitted by law, Ascension Labs won&apos;t
+          To the fullest extent permitted by law, Ascension Labs shall not
           be liable for any indirect, incidental, or consequential damages
-          arising from your use of Habacus. Nothing in these terms limits
-          liability that can&apos;t legally be limited, such as liability
-          for death or personal injury caused by our negligence, or fraud.
+          arising out of or relating to your use of Habacus. Nothing in
+          these Terms limits or excludes liability that cannot lawfully be
+          limited or excluded, including liability for death or personal
+          injury caused by negligence, or for fraud.
         </p>
       </Section>
 
       <Section heading="12. Termination">
         <p>
-          You can stop using Habacus and delete your account at any time.
-          We may suspend or terminate your access if you violate these
-          terms, or discontinue the service (or features of it) with
-          reasonable notice where practical.
+          You may stop using Habacus and delete your account at any time.
+          We may suspend or terminate your access to the service if you
+          breach these Terms, and may discontinue the service, or any part
+          of it, giving reasonable notice where practicable.
         </p>
       </Section>
 
       <Section heading="13. Governing law">
         <p>
-          These terms are governed by the laws of England and Wales,
-          without regard to conflict-of-law principles. If you&apos;re a
-          consumer resident elsewhere, mandatory local consumer-protection
-          laws in your country may still apply.
+          These Terms are governed by the laws of England and Wales,
+          without regard to conflict-of-law principles. If you are a
+          consumer resident in another jurisdiction, mandatory local
+          consumer-protection laws applicable to you are unaffected.
         </p>
       </Section>
 
-      <Section heading="14. Changes to these terms">
+      <Section heading="14. Changes to these Terms">
         <p>
-          We may update these terms as Habacus evolves. We&apos;ll update
-          the &quot;last updated&quot; date above, and for significant
-          changes, we&apos;ll try to notify you directly in the app.
+          We may amend these Terms from time to time. The &quot;last
+          updated&quot; date above will be revised accordingly, and we
+          will use reasonable efforts to notify you directly of any
+          material change.
         </p>
       </Section>
 
       <Section heading="15. Contact">
         <p>
-          Questions about these terms? Email{" "}
+          Questions regarding these Terms may be directed to{" "}
           <a
             href="mailto:hello@habacus.app"
             className="text-gold-bright hover:underline"
@@ -171,13 +179,6 @@ export default function TermsPage() {
           .
         </p>
       </Section>
-
-      <p className="font-mono border-t border-border-hairline pt-8 text-xs text-foreground-faint">
-        This is a plain-language draft written for a beta-stage product —
-        it isn&apos;t legal advice. Have a lawyer review it before relying
-        on it for an App Store submission or in a jurisdiction with
-        specific requirements.
-      </p>
     </LegalDoc>
   );
 }
