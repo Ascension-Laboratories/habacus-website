@@ -10,8 +10,8 @@ export default function Footer() {
               habacus
             </span>
             <p className="mt-3 font-serif text-sm leading-relaxed text-foreground-muted">
-              A ritual companion for consistency — not a tracker. Every bead you
-              place is a day you showed up.
+              Make your habits count. Every bead you place is a day you showed
+              up.
             </p>
           </div>
 
@@ -60,7 +60,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Ascension Labs. All rights reserved.
           </p>
           <p className="font-mono text-xs text-foreground-faint">
-            Currently in private beta.
+            First on iOS.
           </p>
         </div>
       </div>

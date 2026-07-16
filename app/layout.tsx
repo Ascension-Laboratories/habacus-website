@@ -3,6 +3,7 @@ import { DM_Sans, DM_Mono, DM_Serif_Display, Source_Serif_4, Teachers } from "ne
 import "./globals.css";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import WaitlistProvider from "@/components/WaitlistProvider";
 import { accentBootstrapScript } from "@/lib/accents";
 
 const dmSans = DM_Sans({
@@ -35,12 +36,12 @@ const teachers = Teachers({
 export const metadata: Metadata = {
   title: "Habacus — Make your habits count.",
   description:
-    "Habacus is a ritual companion, not a habit tracker. Every day you show up, a bead settles into place. Calm consistency, no streaks, no guilt.",
+    "Habacus is an abacus for your habits. Tap a bead each day, watch your week take shape, and let your friends cheer you on. On iOS.",
   metadataBase: new URL("https://habacus.app"),
   openGraph: {
     title: "Habacus — Make your habits count.",
     description:
-      "A digital ritual object for building consistency. Slide a bead, feel the day settle.",
+      "An abacus for your habits. Tap a bead each day, watch your week take shape, and let your friends cheer you on. On iOS.",
     type: "website",
   },
 };
@@ -58,13 +59,16 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${dmSans.variable} ${dmMono.variable} ${dmSerifDisplay.variable} ${sourceSerif4.variable} ${teachers.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="relative min-h-full flex flex-col bg-background text-foreground">
         <script
           dangerouslySetInnerHTML={{ __html: accentBootstrapScript() }}
         />
-        <Nav />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <div className="ambient-top" aria-hidden="true" />
+        <WaitlistProvider>
+          <Nav />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </WaitlistProvider>
       </body>
     </html>
   );

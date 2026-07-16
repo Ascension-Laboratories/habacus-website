@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import AccentSwitcher from "@/components/AccentSwitcher";
+import { useWaitlist } from "@/components/WaitlistProvider";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const { open: openWaitlist } = useWaitlist();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -50,12 +52,13 @@ export default function Nav() {
               </Link>
             </nav>
 
-            <Link
-              href="/#early-access"
+            <button
+              type="button"
+              onClick={openWaitlist}
               className="rounded-full border border-gold/40 bg-gold-dim/30 px-5 py-2.5 font-eyebrow text-[13px] uppercase tracking-[0.1em] text-gold-bright transition-colors hover:bg-gold-dim/50"
             >
               Early access
-            </Link>
+            </button>
           </div>
         </div>
       </div>

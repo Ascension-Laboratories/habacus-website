@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useAccent } from "@/lib/useAccent";
 import type { Accent } from "@/lib/accents";
 import { MARBLE_CORE_GLSL, hexToRgb01 } from "@/lib/marbleShader";
+import { registerAbacusSnapshotter } from "@/lib/abacusExport";
 
 // -----------------------------------------------------------------------------
 // A faithful web port of the app's Skia abacus (components/Abacus.tsx). Both the
@@ -637,7 +638,7 @@ export default function Hero3DAbacus() {
     const TRANSITION_MS = 380;
     let raf = 0;
     const start = performance.now();
-    function frame(now: number) {
+    function renderScene(now: number) {
       if (!gl) return;
 
       if (animRef.current) {
@@ -671,11 +672,43 @@ export default function Hero3DAbacus() {
       gl.uniform1f(uTime, reduce ? 6.0 : (now - start) / 1000);
       gl.clear(gl.COLOR_BUFFER_BIT);
       gl.drawArrays(gl.TRIANGLES, 0, 3);
+    }
+    function frame(now: number) {
+      renderScene(now);
       raf = requestAnimationFrame(frame);
     }
     raf = requestAnimationFrame(frame);
 
+    // Share-card seam: draw a fresh frame and read it back within the same
+    // task — the drawing buffer is only guaranteed until control returns to
+    // the browser, so staying synchronous here is what lets the hero keep
+    // preserveDrawingBuffer off.
+    const unregisterSnapshotter = registerAbacusSnapshotter(() => {
+      if (!canvas || !gl) return null;
+      renderScene(performance.now());
+      const w = canvas.width;
+      const h = canvas.height;
+      const raw = new Uint8Array(w * h * 4);
+      gl.readPixels(0, 0, w, h, gl.RGBA, gl.UNSIGNED_BYTE, raw);
+      // GL rows are bottom-up and premultiplied; ImageData wants the opposite.
+      const pixels = new Uint8ClampedArray(w * h * 4);
+      for (let y = 0; y < h; y++) {
+        const src = (h - 1 - y) * w * 4;
+        const dst = y * w * 4;
+        for (let i = 0; i < w * 4; i += 4) {
+          const a = raw[src + i + 3];
+          const un = a === 0 ? 0 : 255 / a;
+          pixels[dst + i] = raw[src + i] * un;
+          pixels[dst + i + 1] = raw[src + i + 1] * un;
+          pixels[dst + i + 2] = raw[src + i + 2] * un;
+          pixels[dst + i + 3] = a;
+        }
+      }
+      return { pixels, width: w, height: h };
+    });
+
     return () => {
+      unregisterSnapshotter();
       cancelAnimationFrame(raf);
       window.removeEventListener("resize", resize);
       gl.deleteProgram(program);
